@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+        <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+        <head>
+        <meta charset="UTF-8">
+        <title>User</title>
+</head>
+<body>
+<h1>Список пользователей</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Возраст</th>
+        <th>Роль</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.lastName}"></td>
+        <td th:text="${user.age}"></td>
+        <td>
+    <span th:each="role : ${user.roles}">
+        <span th:if="${role.name == 'ROLE_USER'}" th:text="'User' "></span>
+        <span th:if="${role.name == 'ROLE_ADMIN'}" th:text="'Admin' "></span>
+        <span th:if="${role.name != 'ROLE_USER' and role.name != 'ROLE_ADMIN'}" th:text="${role.name}"></span>
+    </span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<button type="button" style="padding: 5px;" onclick='window.location.href = window.location.protocol + "//" + window.location.host + window.location.pathname + "admin";'>Перейти к редактированию</button>
+<a href="/user"><button type="button" style="padding: 5px;">Перейти на свою страницу</button></a>
+
+<form action="#" th:action="@{/logout}" method="post"><button type="submit">Выйти</button></form>
+
+
+</body>
+</html></title>
+</head>
+<body>
+
+</body>
+</html>

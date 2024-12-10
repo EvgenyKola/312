@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+        <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+        <head>
+        <meta charset="UTF-8">
+        <title>User</title>
+</head>
+<body>
+<h1>Список пользователей</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Возраст</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.lastName}"></td>
+        <td th:text="${user.age}"></td>
+        <td><a th:href="@{/admin/edit(id=${user.id})}">Edit</a></td>
+        <td><a th:href="@{/admin/delete(id=${user.id})}">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+
+<button type="button" style="padding: 5px;" onclick='window.location.href = window.location.protocol + "//" + window.location.host + window.location.pathname + "/create";'>Создать пользователя</button>
+<form action="#" th:action="@{/logout}" method="post"><button type="submit">Выйти</button></form>
+
+<p th:text="${message}"></p>
+
+
+
+</body>
+</html></title>
+</head>
+<body>
+
+</body>
+</html>

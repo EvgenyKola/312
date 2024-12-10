@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Страница пользователя</title>
+    <h1>Пользователь</h1>
+
+    <p>Пользователь: <span th:text="${user.getUsername()}"></span></p>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Возраст</th>
+            <th>Пароль</th>
+            <th>Роль</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td id="id" th:text="${user.id}"></td>
+            <td><input type="text" id="name" name="name" th:value="${user.username}" /></td>
+            <td><input type="text" id="lastName" name="lastName" th:value="${user.lastName}" /></td>
+            <td><input type="text" id="age" name="age" th:value="${user.age}" /></td>
+            <td><input type="text" id="password" name="password" th:value="${user.password}" /></td>
+
+            <td>
+                <span th:each="role : ${user.roles}">
+                    <span th:if="${role.name == 'ROLE_USER'}" th:text="'User' "></span>
+                    <span th:if="${role.name == 'ROLE_ADMIN'}" th:text="'Admin' "></span>
+                    <span th:if="${role.name != 'ROLE_USER' and role.name != 'ROLE_ADMIN'}" th:text="${role.name}"></span>
+                </span>
+            </td>
+
+
+        </tr>
+        </tbody>
+    </table>
+
+    <div id="message"><p th:text="${message}"></p></div>
+
+    <button type="button" style="padding: 5px;" onclick="editUser()">Изменить данные</button>
+
+    <form action="#" th:action="@{/logout}" method="post"><button type="submit">Выйти</button></form>
+
+
+    <script>
+        function editUser() {
+            const id = document.getElementById('id').innerHTML;
+            const name = document.getElementById('name').value;
+            const lastName = document.getElementById('lastName').value;
+            const age = document.getElementById('age').value;
+            const password = document.getElementById('password').value;
+
+            var baseUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+            var newUrl = baseUrl + `?id=${id}&name=${name}&lastName=${lastName}&age=${age}&password=${password}&update=true`;
+
+            window.location.href = newUrl;
+        }
+    </script>
+
+
+<body>
+
+</body>
+
+
+</html>
