@@ -1,0 +1,46 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    height: 100%;
+    max-width: 100%;
+}
+
+.row {
+    height: 100%;
+    margin-top: 70px;
+}
+
+.col-md-3 {
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+.col-md-9 {
+    height: 100vh;
+    overflow-y: auto;
+    background: #f7f7f7;
+}
+
+.bg-dark {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.col-md-9 > h1 {
+    line-height: 2.2;
+}
+
+.col-md-9 h4 {
+    line-height: 2;
+}
+
+#addNewUser {
+    max-width: 500px;
+    margin: 0 auto;
+}
