@@ -46,7 +46,5 @@ public class UsersCreate {
         regularUser.setLastName("User");
         regularUser.setRoles(Set.of(userRole));
         userRepository.save(regularUser);
-
-        System.out.println("Инициализация пользователей завершена");
     }
 }
