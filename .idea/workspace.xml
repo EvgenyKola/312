@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be35e96e-e24a-432c-87e7-7aefb1ddb7ea" name="Changes" comment="1">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/DAO/UserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/DAO/UserDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/repositories/RoleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/repositories/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/DAO/UserDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/DAO/UserDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/controllers/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/controllers/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/model/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/model/Role.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/repositories/RoleRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/repositories/RoleRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/repositories/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/repositories/UserRepository.class" afterDir="false" />
-    </list>
+    <list default="true" id="be35e96e-e24a-432c-87e7-7aefb1ddb7ea" name="Changes" comment="1" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -118,6 +104,7 @@
       <workItem from="1736411600414" duration="10825000" />
       <workItem from="1736530011496" duration="2073000" />
       <workItem from="1736535840578" duration="1384000" />
+      <workItem from="1736582671755" duration="338000" />
     </task>
     <servers />
   </component>
