@@ -10,6 +10,12 @@ import com.kara_311._1.services.*;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 
+/*
+* В прошлом задании всё было убрано из контроллера.
+* Сейчас обработка запроса происходит в services.
+* Верно понимаю, что часть логики нужно вернуть обратно?
+* */
+
 @Controller
 public class AdminController {
 
