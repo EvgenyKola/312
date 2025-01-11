@@ -2,12 +2,8 @@ package com.kara_311._1.DAO;
 
 import com.kara_311._1.model.Role;
 import com.kara_311._1.model.User;
-import com.kara_311._1.repositories.RoleRepository;
-import com.kara_311._1.repositories.UserRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.Arrays;
@@ -15,48 +11,50 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-
 @Repository
 public class UserDAOImpl implements UserDAO {
 
     @PersistenceContext
     private EntityManager entityManager;
 
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private RoleRepository role;
-
+    @Override
     public List<User> getAllUsers() {
         return entityManager.createQuery("SELECT user FROM User user", User.class).getResultList();
     }
 
+    @Override
     public Integer deleteUser(Long userId) {
-
         return entityManager.createQuery("DELETE FROM User u WHERE u.id = :userId")
                 .setParameter("userId", userId)
                 .executeUpdate();
     }
 
+    @Override
     public void createUser(User user) {
         entityManager.persist(user);
-    };
+    }
 
+    @Override
     public void editUser(User user) {
         entityManager.merge(user);
-    };
+    }
 
+    @Override
     public User getUser(Long userId) {
         return entityManager.find(User.class, userId);
-    };
+    }
 
+    @Override
     public List<Role> getAllRoles() {
         return entityManager.createQuery("SELECT r FROM Role r", Role.class).getResultList();
     }
 
+    @Override
     public User updateUser(Long id, String name, String lastName, Byte age, String password, String roles) {
-        User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Пользователь не найден: " + id));
+        User user = entityManager.find(User.class, id);
+        if (user == null) {
+            throw new IllegalArgumentException("Пользователь не найден: " + id);
+        }
 
         user.setUsername(name);
         user.setLastName(lastName);
@@ -65,16 +63,23 @@ public class UserDAOImpl implements UserDAO {
 
         if (roles != null) {
             Set<Role> roleSet = Arrays.stream(roles.split(","))
-                    .map(roleName -> role.findByName(roleName)
-                            .orElseThrow(() -> new IllegalArgumentException("Роль не найдена: " + roleName)))
+                    .map(roleName -> {
+                        Role role = entityManager.createQuery("SELECT r FROM Role r WHERE r.name = :name", Role.class)
+                                .setParameter("name", roleName)
+                                .getResultStream()
+                                .findFirst()
+                                .orElseThrow(() -> new IllegalArgumentException("Роль не найдена: " + roleName));
+                        return role;
+                    })
                     .collect(Collectors.toSet());
             user.setRoles(roleSet);
         }
 
-        userRepository.save(user);
+        entityManager.merge(user);
         return user;
     }
 
+    @Override
     public User findByUsername(String username) {
         try {
             return entityManager.createQuery("SELECT u FROM User u WHERE u.username = :username", User.class)
