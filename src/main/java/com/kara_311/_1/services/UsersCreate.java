@@ -5,6 +5,7 @@ import com.kara_311._1.model.User;
 import com.kara_311._1.repositories.RoleRepository;
 import com.kara_311._1.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import jakarta.annotation.PostConstruct;
@@ -18,6 +19,14 @@ public class UsersCreate {
 
     @Autowired
     private RoleRepository roleRepository;
+
+    BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
+    String userPassword = "user";
+    String adminPassword = "admin";
+
+    String encryptedUserPassword = passwordEncoder.encode(userPassword);
+    String encryptedAdminPassword = passwordEncoder.encode(adminPassword);
 
     @PostConstruct
     public void init() {
@@ -33,7 +42,7 @@ public class UsersCreate {
 
         User adminUser = new User();
         adminUser.setUsername("admin");
-        adminUser.setPassword("admin");
+        adminUser.setPassword(encryptedAdminPassword);
         adminUser.setAge((byte) 30);
         adminUser.setLastName("Admin");
         adminUser.setRoles(Set.of(adminRole));
@@ -41,7 +50,7 @@ public class UsersCreate {
 
         User regularUser = new User();
         regularUser.setUsername("user");
-        regularUser.setPassword("user");
+        regularUser.setPassword(encryptedUserPassword);
         regularUser.setAge((byte) 25);
         regularUser.setLastName("User");
         regularUser.setRoles(Set.of(userRole));

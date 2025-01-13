@@ -32,6 +32,8 @@ public interface UserServices {
 
     String determineTab(HttpServletRequest request);
 
+    void createUser(User user);
+
     void handleAdminActions(ModelMap model, HttpServletRequest request);
 
 }

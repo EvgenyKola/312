@@ -22,7 +22,7 @@
             </span>
         </div>
         <div>
-            <a href="/logout" class="btn btn-light">Выйти</a>
+            <a href="/logout" style="color: #e5e5e5;">Выйти</a>
         </div>
     </div>
 </div>
@@ -31,8 +31,13 @@
     <div class="row">
         <div class="col-md-3">
             <div class="list-group">
-                <a href="/admin" id="admin-link" h1="Admin panel" th:classappend="${tab == 'admin'} ? 'active':''" class="list-group-item list-group-item-action">Администрирование</a>
-                <a href="/user" id="user-link" h1="New user" th:classappend="${tab == 'user'} ? 'active':''" class="list-group-item list-group-item-action">Пользователи</a>
+
+                <a href="/admin" id="admin-link" th:if="${isAdmin}"
+                   th:classappend="${tab == 'admin'} ? 'active' : ''" class="list-group-item list-group-item-action">
+                    Администрирование
+                </a>
+
+                <a href="/user" id="user-link" h1="New user" th:classappend="${tab == 'user'} ? 'active':''" class="list-group-item list-group-item-action">Пользователь</a>
             </div>
         </div>
 
@@ -57,8 +62,8 @@
                             <td th:text="${user.age}"></td>
                             <td>
                                 <span th:each="role : ${user.roles}">
-                                    <span th:if="${role.name == 'ROLE_USER'}" class="badge badge-info" th:text="'Пользователь'"></span>
-                                    <span th:if="${role.name == 'ROLE_ADMIN'}" class="badge badge-danger" th:text="'Администратор'"></span>
+                                    <span th:if="${role.name == 'ROLE_USER'}" th:text="'Пользователь'"></span>
+                                    <span th:if="${role.name == 'ROLE_ADMIN'}" th:text="'Администратор'"></span>
                                     <span th:if="${role.name != 'ROLE_USER' and role.name != 'ROLE_ADMIN'}" class="badge badge-secondary" th:text="${role.name}"></span>
                                 </span>
                             </td>

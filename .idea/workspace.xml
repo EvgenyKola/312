@@ -4,7 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be35e96e-e24a-432c-87e7-7aefb1ddb7ea" name="Changes" comment="1" />
+    <list default="true" id="be35e96e-e24a-432c-87e7-7aefb1ddb7ea" name="Changes" comment="1">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/DAO/UserDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/DAO/UserDAOImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/configs/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/configs/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/controllers/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/services/UserServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/services/UserServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/services/UserServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/services/UserServicesImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/services/UsersCreate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/services/UsersCreate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/DAO/UserDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/DAO/UserDAOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/configs/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/configs/WebSecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/controllers/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/controllers/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/repositories/RoleRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/repositories/RoleRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/repositories/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/repositories/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/services/UserServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/services/UserServices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/services/UserServicesImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/services/UserServicesImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/services/UsersCreate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/services/UsersCreate.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,6 +45,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;EvgenyKola&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/EvgenyKola/312.git&quot;,
+    &quot;accountId&quot;: &quot;0475b7a2-58e8-4d2b-af8f-bd3d523fd21b&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
@@ -105,10 +140,27 @@
       <workItem from="1736530011496" duration="2073000" />
       <workItem from="1736535840578" duration="1384000" />
       <workItem from="1736582671755" duration="338000" />
+      <workItem from="1736583603639" duration="303000" />
+      <workItem from="1736583934363" duration="209000" />
+      <workItem from="1736757093579" duration="4401000" />
+      <workItem from="1736769942985" duration="7505000" />
     </task>
+    <task id="LOCAL-00001" summary="1">
+      <option name="closed" value="true" />
+      <created>1736584088124</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1736584088124</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1" />
+    <option name="LAST_COMMIT_MESSAGE" value="1" />
   </component>
 </project>

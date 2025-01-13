@@ -1,10 +1,11 @@
+
 package com.kara_311._1.services;
 
 import com.kara_311._1.model.Role;
 import com.kara_311._1.model.User;
-import com.kara_311._1.DAO.UserDAO;
+import com.kara_311._1.repositories.UserRepository;
+import com.kara_311._1.repositories.RoleRepository;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -15,24 +16,22 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
 public class UserServicesImpl implements UserDetailsService, UserServices {
 
-    private UserDAO userDao;
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
 
     @Autowired
-    public UserServicesImpl(UserDAO userDao) {
-        this.userDao = userDao;
+    public UserServicesImpl(UserRepository userRepository, RoleRepository roleRepository) {
+        this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
     }
 
     @Override
-    @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = findByUsername(username);
 
@@ -53,44 +52,52 @@ public class UserServicesImpl implements UserDetailsService, UserServices {
                 .collect(Collectors.toList());
     }
 
-    @Transactional
+
     public User findByUsername(String username) {
-        return userDao.findByUsername(username);
+        return userRepository.findByUsername(username);
     }
 
-    @Transactional
     public User getUser(Long userId) {
-        return userDao.getUser(userId);
+        return userRepository.findById(userId).orElse(null);
     }
 
-    @Transactional
     public List<User> getAllUsers() {
-        return userDao.getAllUsers();
+        return userRepository.findAll();
     }
 
-    @Transactional
     public Integer deleteUser(Long userId) {
-        return userDao.deleteUser(userId);
+        Optional<User> userOptional = userRepository.findById(userId);
+        if (userOptional.isPresent()) {
+            userRepository.deleteById(userId);
+            return 1;  // Пользователь удален
+        }
+        return 0;  // Пользователь не найден
     }
 
-    @Transactional
     public void editUser(User user) {
-        userDao.editUser(user);
+        userRepository.save(user);
     }
 
-    @Transactional
     public List<Role> getAllRoles() {
-        return userDao.getAllRoles();
+        return roleRepository.findAll();
     }
 
-    @Transactional
     public User updateUser(Long id, String name, String lastName, Byte age, String password, String roles) {
-        return userDao.updateUser(id, name, lastName, age, password, roles);
+        Optional<User> optionalUser = userRepository.findById(id);
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            user.setUsername(name);
+            user.setLastName(lastName);
+            user.setAge(age);
+            user.setPassword(password);
+            user.setRoles(getRolesFromNames(roles));
+            return userRepository.save(user);
+        }
+        return null;
     }
 
-    @Transactional
     public void createNewUser(ModelMap model, HttpServletRequest request) {
-        List<Role> allRoles = userDao.getAllRoles();
+        List<Role> allRoles = roleRepository.findAll();
         model.addAttribute("allRoles", allRoles);
 
         if (request.getParameter("name") == null) {
@@ -113,17 +120,9 @@ public class UserServicesImpl implements UserDetailsService, UserServices {
             user.setUsername(name);
             user.setLastName(lastName);
             user.setPassword(password);
+            user.setRoles(getRolesFromNames(role));
 
-            Set<Role> roles = Arrays.stream(role.split(","))
-                    .map(roleName -> allRoles.stream()
-                            .filter(r -> r.getName().equals(roleName))
-                            .findFirst()
-                            .orElseThrow(() -> new IllegalArgumentException("Роль не найдена: " + roleName)))
-                    .collect(Collectors.toSet());
-
-            user.setRoles(roles);
-
-            userDao.createUser(user);
+            userRepository.save(user);
 
             model.addAttribute("user", user);
             model.addAttribute("message", "Пользователь создан");
@@ -132,13 +131,22 @@ public class UserServicesImpl implements UserDetailsService, UserServices {
         }
     }
 
-    @Transactional
+    private Set<Role> getRolesFromNames(String rolesString) {
+        Set<Role> roles = new HashSet<>();
+        String[] roleNames = rolesString.split(",");
+        for (String roleName : roleNames) {
+            Role role = roleRepository.findByName(roleName)
+                    .orElseThrow(() -> new IllegalArgumentException("Роль не найдена: " + roleName));
+            roles.add(role);
+        }
+        return roles;
+    }
+
     public String determineTab(HttpServletRequest request) {
         String uri = request.getRequestURL().toString();
         return uri.contains("/admin") ? "admin" : "user";
     }
 
-    @Transactional
     public void handleAdminActions(ModelMap model, HttpServletRequest request) {
         String newUser = request.getParameter("newUser");
         String update = request.getParameter("update");
@@ -154,7 +162,6 @@ public class UserServicesImpl implements UserDetailsService, UserServices {
         }
     }
 
-    @Transactional
     public void handleUpdateUser(ModelMap model, HttpServletRequest request) {
         Long id = Long.parseLong(request.getParameter("id"));
         String name = request.getParameter("name");
@@ -191,14 +198,12 @@ public class UserServicesImpl implements UserDetailsService, UserServices {
         model.addAttribute("message", "Пользователь обновлен");
     }
 
-    @Transactional
     public void handleDeleteUser(ModelMap model, HttpServletRequest request) {
         Long id = Long.parseLong(request.getParameter("id"));
         String result = deleteUser(id) == 1 ? "Пользователь удален" : "Пользователь не найден";
         model.addAttribute("message", result);
     }
 
-    @Transactional
     public User getCurrentUser(Authentication authentication) {
         User currentUser = null;
         if (authentication != null && authentication.isAuthenticated()) {
@@ -208,5 +213,9 @@ public class UserServicesImpl implements UserDetailsService, UserServices {
             }
         }
         return currentUser;
+    }
+
+    public void createUser(User user) {
+        userRepository.save(user);
     }
 }
