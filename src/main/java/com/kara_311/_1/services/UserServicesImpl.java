@@ -6,13 +6,16 @@ import com.kara_311._1.model.User;
 import com.kara_311._1.repositories.UserRepository;
 import com.kara_311._1.repositories.RoleRepository;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
 
@@ -20,15 +23,19 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
+@Transactional
 public class UserServicesImpl implements UserDetailsService, UserServices {
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
+    private final BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserServicesImpl(UserRepository userRepository, RoleRepository roleRepository) {
+    @Lazy
+    public UserServicesImpl(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -98,11 +105,6 @@ public class UserServicesImpl implements UserDetailsService, UserServices {
 
     public void createNewUser(ModelMap model, HttpServletRequest request) {
 
-
-
-        System.out.println("________________________Создаём пользователя________________________");
-
-
         List<Role> allRoles = roleRepository.findAll();
         model.addAttribute("allRoles", allRoles);
 
@@ -125,7 +127,7 @@ public class UserServicesImpl implements UserDetailsService, UserServices {
             user.setAge(age);
             user.setUsername(name);
             user.setLastName(lastName);
-            user.setPassword(password);
+            user.setPassword(passwordEncoder.encode(password));
             user.setRoles(getRolesFromNames(role));
 
             userRepository.save(user);

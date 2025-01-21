@@ -42,7 +42,6 @@ public class AdminController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
         response.put("tab", userServices.determineTab(request));
-        //userServices.handleAdminActions(response, request);
         response.put("users", userServices.getAllUsers());
         response.put("currentUser", userServices.getCurrentUser(auth));
 
@@ -79,19 +78,6 @@ public class AdminController {
         response.put("users", userServices.getAllUsers());
         return ResponseEntity.ok(response);
     }
-
-    /*@PatchMapping("/admin/{id}")
-    public ResponseEntity<Map<String, Object>> partiallyUpdateUser(@PathVariable Long id, @RequestBody Map<String, Object> updates) {
-        userServices.updateUser(id,
-                (String) updates.get("name"),
-                (String) updates.get("lastName"),
-                updates.get("age") != null ? Byte.valueOf(updates.get("age").toString()) : null,
-                (String) updates.get("password"),
-                (String) updates.get("roles"));
-        Map<String, Object> response = new HashMap<>();
-        response.put("users", userServices.getAllUsers());
-        return ResponseEntity.ok(response);
-    }*/
 
     @DeleteMapping("/admin/{id}")
     public ResponseEntity<Map<String, Object>> deleteUser(@PathVariable Long id) {

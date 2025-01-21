@@ -1,30 +1,24 @@
 package com.kara_311._1.configs;
 
-import com.kara_311._1.services.UserServicesImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
-public class WebSecurityConfig{
-
-    private UserServicesImpl userService;
-
-    @Autowired
-    public void setUserService(UserServicesImpl userService) {
-        this.userService = userService;
-    }
+public class WebSecurityConfig {
 
     private final SuccessUserHandler successUserHandler;
+    private final UserDetailsService userDetailsService;
 
-    public WebSecurityConfig(SuccessUserHandler successUserHandler) {
+    @Autowired
+    public WebSecurityConfig(SuccessUserHandler successUserHandler, UserDetailsService userDetailsService) {
         this.successUserHandler = successUserHandler;
+        this.userDetailsService = userDetailsService;
     }
 
     @Bean
@@ -37,8 +31,6 @@ public class WebSecurityConfig{
                         .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN")
                         .requestMatchers("/").permitAll()
                         .anyRequest().authenticated()
-                        //.anyRequest().permitAll()
-
                 )
                 .formLogin(form -> form
                         .successHandler(successUserHandler)
@@ -52,16 +44,15 @@ public class WebSecurityConfig{
     }
 
     @Bean
-    public PasswordEncoder pe () {
+    public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider() {
-        DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
-        daoAuthenticationProvider.setPasswordEncoder(pe());
-        daoAuthenticationProvider.setUserDetailsService(userService);
-        return daoAuthenticationProvider;
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+        provider.setPasswordEncoder(passwordEncoder());
+        provider.setUserDetailsService(userDetailsService);
+        return provider;
     }
-
 }
