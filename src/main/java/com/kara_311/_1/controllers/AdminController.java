@@ -1,16 +1,22 @@
 package com.kara_311._1.controllers;
 
 import com.kara_311._1.model.User;
+import com.kara_311._1.model.Role;
 import com.kara_311._1.services.UserServices;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+@RestController
 public class AdminController {
 
     private final UserServices userServices;
@@ -21,31 +27,77 @@ public class AdminController {
     }
 
     @GetMapping("/user")
-    public String printCurrentUserInfo(ModelMap model, HttpServletRequest request) {
-        model.addAttribute("tab", userServices.determineTab(request));
-        model.addAttribute("currentUser", userServices.getCurrentUser(SecurityContextHolder.getContext().getAuthentication()));
-
-        // Добавим роль в модель
+    public ResponseEntity<Map<String, Object>> getCurrentUserInfo(HttpServletRequest request) {
+        Map<String, Object> response = new HashMap<>();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        model.addAttribute("isAdmin", auth.getAuthorities().stream()
-                .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_ADMIN")));
 
-        return "user";
+        response.put("currentUser", userServices.getCurrentUser(auth));
+
+        return ResponseEntity.ok(response);
     }
 
-    @GetMapping(value = "/admin")
-    public String getAllUsersAdminPage(ModelMap model, HttpServletRequest request) {
-        model.addAttribute("tab", userServices.determineTab(request));
-        userServices.handleAdminActions(model, request);
-        model.addAttribute("users", userServices.getAllUsers());
-        model.addAttribute("currentUser", userServices.getCurrentUser(SecurityContextHolder.getContext().getAuthentication()));
-
-        // Добавим роль в модель
+    @GetMapping("/admin")
+    public ResponseEntity<Map<String, Object>> getAllUsers(HttpServletRequest request) {
+        Map<String, Object> response = new HashMap<>();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        model.addAttribute("isAdmin", auth.getAuthorities().stream()
-                .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_ADMIN")));
 
-        return "admin";
+        response.put("tab", userServices.determineTab(request));
+        //userServices.handleAdminActions(response, request);
+        response.put("users", userServices.getAllUsers());
+        response.put("currentUser", userServices.getCurrentUser(auth));
+
+        return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/admin")
+    public ResponseEntity<Map<String, Object>> createUser(HttpServletRequest request) {
+        ModelMap model = new ModelMap();
+        userServices.createNewUser(model, request);
+
+        if (model.containsAttribute("error")) {
+            return ResponseEntity.badRequest().body(Map.of("error", model.getAttribute("error")));
+        }
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("message", model.getAttribute("message"));
+        response.put("user", model.getAttribute("user"));
+        response.put("users", userServices.getAllUsers());
+
+        return ResponseEntity.ok(response);
+    }
+
+    @PutMapping("/admin/{id}")
+    public ResponseEntity<Map<String, Object>> updateUser(@PathVariable Long id, @RequestBody User user) {
+
+        String rolesAsString = user.getRoles()
+                .stream()
+                .map(Role::getName)
+                .collect(Collectors.joining(","));
+
+        userServices.updateUser(id, user.getUsername(), user.getLastName(), user.getAge(), user.getPassword(), rolesAsString);
+        Map<String, Object> response = new HashMap<>();
+        response.put("users", userServices.getAllUsers());
+        return ResponseEntity.ok(response);
+    }
+
+    /*@PatchMapping("/admin/{id}")
+    public ResponseEntity<Map<String, Object>> partiallyUpdateUser(@PathVariable Long id, @RequestBody Map<String, Object> updates) {
+        userServices.updateUser(id,
+                (String) updates.get("name"),
+                (String) updates.get("lastName"),
+                updates.get("age") != null ? Byte.valueOf(updates.get("age").toString()) : null,
+                (String) updates.get("password"),
+                (String) updates.get("roles"));
+        Map<String, Object> response = new HashMap<>();
+        response.put("users", userServices.getAllUsers());
+        return ResponseEntity.ok(response);
+    }*/
+
+    @DeleteMapping("/admin/{id}")
+    public ResponseEntity<Map<String, Object>> deleteUser(@PathVariable Long id) {
+        userServices.deleteUser(id);
+        Map<String, Object> response = new HashMap<>();
+        response.put("users", userServices.getAllUsers());
+        return ResponseEntity.ok(response);
     }
 }
-

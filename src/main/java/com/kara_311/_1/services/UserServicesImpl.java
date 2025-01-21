@@ -97,6 +97,12 @@ public class UserServicesImpl implements UserDetailsService, UserServices {
     }
 
     public void createNewUser(ModelMap model, HttpServletRequest request) {
+
+
+
+        System.out.println("________________________Создаём пользователя________________________");
+
+
         List<Role> allRoles = roleRepository.findAll();
         model.addAttribute("allRoles", allRoles);
 
@@ -147,7 +153,9 @@ public class UserServicesImpl implements UserDetailsService, UserServices {
         return uri.contains("/admin") ? "admin" : "user";
     }
 
-    public void handleAdminActions(ModelMap model, HttpServletRequest request) {
+
+    /*no usages*/
+   public void handleAdminActions(ModelMap model, HttpServletRequest request) {
         String newUser = request.getParameter("newUser");
         String update = request.getParameter("update");
         String delete = request.getParameter("delete");
@@ -203,6 +211,7 @@ public class UserServicesImpl implements UserDetailsService, UserServices {
         String result = deleteUser(id) == 1 ? "Пользователь удален" : "Пользователь не найден";
         model.addAttribute("message", result);
     }
+    /*no usages*/
 
     public User getCurrentUser(Authentication authentication) {
         User currentUser = null;

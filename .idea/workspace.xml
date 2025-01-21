@@ -6,27 +6,26 @@
   <component name="ChangeListManager">
     <list default="true" id="be35e96e-e24a-432c-87e7-7aefb1ddb7ea" name="Changes" comment="1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/DAO/UserDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/DAO/UserDAOImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/configs/SuccessUserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/configs/SuccessUserHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/configs/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/configs/WebSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/controllers/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/services/UserServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/services/UserServices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/services/UserServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/services/UserServicesImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/services/UsersCreate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/services/UsersCreate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/DAO/UserDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/DAO/UserDAOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/JS/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/JS/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/configs/SuccessUserHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/configs/SuccessUserHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/configs/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/configs/WebSecurityConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/controllers/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/controllers/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/repositories/RoleRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/repositories/RoleRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/repositories/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/repositories/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/services/UserServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/services/UserServices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/model/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/model/Role.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/services/UserServicesImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/services/UserServicesImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/services/UsersCreate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/services/UsersCreate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/JS/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/JS/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/user.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/users.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +75,7 @@
     &quot;Spring Boot.Application.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Korze/Desktop/313&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Korze/Desktop/313/src/main/resources/static&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -86,6 +85,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Korze\Desktop\313\src\main\resources\static" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Korze\Desktop\313\src\main\resources\static\" />
       <recent name="C:\Users\Korze\Desktop\313\src\main\resources\static" />
@@ -143,7 +145,11 @@
       <workItem from="1736583603639" duration="303000" />
       <workItem from="1736583934363" duration="209000" />
       <workItem from="1736757093579" duration="4401000" />
-      <workItem from="1736769942985" duration="7505000" />
+      <workItem from="1736769942985" duration="7810000" />
+      <workItem from="1736843959046" duration="59000" />
+      <workItem from="1737013704816" duration="13105000" />
+      <workItem from="1737199573654" duration="24726000" />
+      <workItem from="1737446049063" duration="13149000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -153,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736584088124</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="1">
+      <option name="closed" value="true" />
+      <created>1736778362377</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1736778362377</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
