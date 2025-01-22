@@ -1,10 +1,10 @@
 
-package com.kara_311._1.services;
+package kata.services;
 
-import com.kara_311._1.model.Role;
-import com.kara_311._1.model.User;
-import com.kara_311._1.repositories.UserRepository;
-import com.kara_311._1.repositories.RoleRepository;
+import kata.model.Role;
+import kata.model.User;
+import kata.repositories.UserRepository;
+import kata.repositories.RoleRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

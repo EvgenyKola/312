@@ -1,12 +1,11 @@
-package com.kara_311._1.services;
+package kata.services;
 
-import com.kara_311._1.model.Role;
-import com.kara_311._1.model.User;
-import com.kara_311._1.repositories.RoleRepository;
-import com.kara_311._1.repositories.UserRepository;
+import kata.model.Role;
+import kata.model.User;
+import kata.repositories.RoleRepository;
+import kata.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import jakarta.annotation.PostConstruct;

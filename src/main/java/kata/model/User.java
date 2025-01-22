@@ -1,7 +1,6 @@
-package com.kara_311._1.model;
+package kata.model;
 
 import jakarta.persistence.*;
-import jakarta.transaction.Transactional;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

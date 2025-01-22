@@ -1,10 +1,10 @@
-package com.kara_311._1.repositories;
+package kata.repositories;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.kara_311._1.model.Role;
+import kata.model.Role;
 
 import java.util.Optional;
 

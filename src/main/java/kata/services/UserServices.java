@@ -1,10 +1,9 @@
-package com.kara_311._1.services;
+package kata.services;
 
-import com.kara_311._1.model.Role;
-import com.kara_311._1.model.User;
+import kata.model.Role;
+import kata.model.User;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import org.springframework.ui.ModelMap;
 

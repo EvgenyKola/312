@@ -5,17 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="be35e96e-e24a-432c-87e7-7aefb1ddb7ea" name="Changes" comment="1">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/configs/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/configs/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/controllers/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/services/UserServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/services/UserServicesImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/services/UsersCreate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/services/UsersCreate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/JS/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/JS/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/configs/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/configs/WebSecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/controllers/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/controllers/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/services/UserServicesImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/services/UserServicesImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/services/UsersCreate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kara_311/_1/services/UsersCreate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kata/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/configs/SuccessUserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kata/configs/SuccessUserHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/configs/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kata/configs/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kata/controllers/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kata/model/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kata/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/repositories/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kata/repositories/RoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kata/repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/services/UserServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kata/services/UserServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/services/UserServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kata/services/UserServicesImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kara_311/_1/services/UsersCreate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kata/services/UsersCreate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/configs/SuccessUserHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/configs/WebSecurityConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/controllers/AdminController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/model/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/repositories/RoleRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/repositories/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/services/UserServices.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/services/UserServicesImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/kara_311/_1/services/UsersCreate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/JS/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/JS/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/kara_311/_1/ApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/kara_311/_1/ApplicationTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +41,7 @@
         <option value="JavaScript File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="OpenRewrite Recipe" />
       </list>
     </option>
   </component>
@@ -89,7 +103,7 @@
   <component name="RunManager">
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="312" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.kara_311._1.Application" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="kata.Application" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -142,6 +156,7 @@
       <workItem from="1737446049063" duration="13755000" />
       <workItem from="1737464693389" duration="1000" />
       <workItem from="1737481384816" duration="3813000" />
+      <workItem from="1737536126029" duration="358000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />

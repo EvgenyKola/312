@@ -159,6 +159,7 @@ async function admin() {
 
             if (response.ok) {
                 const result = await response.json();
+                form.reset();
                 tableUpdate();
                 console.log('Пользователь успешно создан:', result);
             } else {

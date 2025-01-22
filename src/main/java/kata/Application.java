@@ -1,4 +1,4 @@
-package com.kara_311._1;
+package kata;
 
 
 import org.springframework.boot.SpringApplication;

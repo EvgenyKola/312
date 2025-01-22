@@ -1,4 +1,4 @@
-package com.kara_311._1.configs;
+package kata.configs;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;

@@ -1,4 +1,4 @@
-package com.kara_311._1.model;
+package kata.model;
 
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
